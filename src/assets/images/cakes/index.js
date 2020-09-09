@@ -1,0 +1,1 @@
+export cake1 from './cake-1.jpg';
