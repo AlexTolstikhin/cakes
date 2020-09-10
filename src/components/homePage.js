@@ -1,5 +1,7 @@
 import React from 'react';
-import { cake1 } from '../assets/images/cakes';
+import CakeImage1 from '../assets/images/cakes/cake-1.jpg';
+import CakeImage2 from '../assets/images/cakes/cake-2.jpg';
+
 
 const HomePage = (props) => {
     return (
@@ -13,12 +15,12 @@ const HomePage = (props) => {
                 </span>
             </div>
             <div className="content-wrapper">
-                <img className="item-image" src={cake1} alt="cake" />
+                <img className="item-image" src={CakeImage1} alt="cake" />
             </div>
         </section>
         <section className="section-wrapper">
             <div className="content-wrapper">
-                <img className="item-image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcR8e9oEoAdgmE5VbiTf_FTklhWZe5oNDI_rBg&usqp=CAU" alt="cake" />
+                <img className="item-image" src={CakeImage2} alt="cake" />
             </div>
             <div className="content-wrapper">
                 <span className="text-holder">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
@@ -26,7 +28,7 @@ const HomePage = (props) => {
             </div>
         </section>
         <section className="section-wrapper">
-            <table className="info-table">
+            <table className="info-table center">
                 <thead>
                     <tr>
                         <td colSpan="3">Prices</td> 
@@ -53,14 +55,14 @@ const HomePage = (props) => {
         </section>
         <section className="section-wrapper">
             <div className="content-wrapper column">
-                <span className="title-txt">Email us</span>
+                <span className="subtitle">Email us</span>
                 <textarea placeholder="Please leave add some information about your order here and we'll contact you as soon as possible" />
                 <button>Send Email</button>
             </div>
         </section>
         <section className="section-wrapper">
             <div className="content-wrapper column">
-                <table className="info-table">
+                <table className="info-table left">
                     <thead>
                         <tr>
                             <td colSpan="2">Contact information</td> 
@@ -69,7 +71,7 @@ const HomePage = (props) => {
                     <tbody>
                         <tr>
                             <td>Email us at:</td>
-                            <td>60$</td>
+                            <td>cakes.sf.ca@gmail.com</td>
                         </tr>
                         <tr>
                             <td>Call us at:</td>

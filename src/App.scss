@@ -5,17 +5,27 @@ html {
 
 .title {
   font-family: 'Pacifico', cursive;
-  font-size: 10vh;
+  font-size: 6vh;
 }
 .main-section {
+  font-family: 'Raleway', sans-serif;
   width: 80%;
   margin: 0 auto;
   background-color: lightyellow;
   opacity: 0.8;
+
+  @media (max-width: 1200px) {
+    font-family: 'Raleway', sans-serif;
+    width: 95%;
+    margin: 0 auto;
+    background-color: lightyellow;
+    opacity: 0.8;
+  }
 }
 
 .content-wrapper {
   display: flex;
+  flex-basis: 50%;
   padding: 40px;
   text-align: center;
 }
@@ -28,19 +38,52 @@ html {
 .section-wrapper {
   justify-content: space-around;
   display: flex;
+  @media (max-width: 1200px) {
+    display: flex;
+    flex-flow: column;
+  }
 }
 
 .item-image {
+  flex-grow: 4;
+  box-shadow: 8px 8px 8px;
+  height: auto;
+  width: 100%;
   align-self: center;
   border-radius: 10px;
 }
 
 
-.info-table{
-  td {
+.info-table {  
+  thead {
+    font-size: 3vh;
+    margin: 10px;
     text-align: center;
-    width: 200px;
-    height: 40px;
+
+  }
+
+  tbody {
+    font-size: 2vh;
+  }
+  &.center {
+    tbody {
+      td {
+        text-align: center;
+        width: 200px;
+        height: 40px;
+      }
+    }
+  }
+
+  &.left {
+    tbody {
+      td {
+        text-align: left;
+        width: 400px;
+        height: 40px;
+      }
+    }
+
   }
 }
 
@@ -48,8 +91,13 @@ html {
   flex-flow: column;
 }
 
+.subtitle {
+  font-size: 3vh;
+}
+
 textarea {
-  width: 60vh;
+  font-size: 18px;
+  width: 100%;
   min-height: 200px;
 }
 button {
@@ -57,11 +105,10 @@ button {
   align-self: center;
 }
 
-.title-txt, button {
+.subtitle, button {
   margin: 20px;
 }
 
-.title-txt, button, td, .text-holder {
-  font-family: 'Raleway', sans-serif;
+.text-holder {
   font-size: 2vh;
 }
