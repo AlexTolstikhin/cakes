@@ -5,7 +5,7 @@ html {
 
 .title {
   font-family: 'Pacifico', cursive;
-  font-size: 6vh;
+  font-size: 50px;
 }
 .main-section {
   font-family: 'Raleway', sans-serif;
@@ -56,14 +56,14 @@ html {
 
 .info-table {  
   thead {
-    font-size: 3vh;
+    font-size: 30px;
     margin: 10px;
     text-align: center;
 
   }
 
   tbody {
-    font-size: 2vh;
+    font-size: 24px;
   }
   &.center {
     tbody {
@@ -92,11 +92,11 @@ html {
 }
 
 .subtitle {
-  font-size: 3vh;
+  font-size: 30px;
 }
 
 textarea {
-  font-size: 18px;
+  font-size: 20px;
   width: 100%;
   min-height: 200px;
 }
@@ -106,9 +106,9 @@ button {
 }
 
 .subtitle, button {
-  margin: 20px;
+  margin: 30px;
 }
 
 .text-holder {
-  font-size: 2vh;
+  font-size: 24px;
 }

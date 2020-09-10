@@ -70,16 +70,16 @@ const HomePage = (props) => {
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Email us at:</td>
+                            <td>Email us: </td>
                             <td>cakes.sf.ca@gmail.com</td>
                         </tr>
                         <tr>
-                            <td>Call us at:</td>
+                            <td>Call us: </td>
                             <td>555-55-55</td>
                         </tr>
                         <tr>
-                            <td>Our Instagram</td>
-                            <td><a href="https://www.instagram.com/p/B_GY234hIAh/?utm_source=ig_web_copy_link">Click me</a></td>
+                            <td>Instagram: </td>
+                            <td><a href="https://www.instagram.com/p/B_GY234hIAh/?utm_source=ig_web_copy_link" target="_blank">Click me</a></td>
                         </tr>
                     </tbody>
                 </table>
