@@ -72,13 +72,13 @@ const HomePage = () => {
             <SectionWrapper classes="section-wrapper">
                 <div className="content-wrapper column">
                     <span className="subtitle">Email us</span>
-                    <textarea onChange={({ target: { value = '' } }) => setMessageTxt(value)} placeholder="Please leave add some information about your order here and we'll contact you as soon as possible" />
+                    <textarea onChange={({ target: { value = '' } }) => setMessageTxt(value)} placeholder="Please leave your contact information and some details about your order here and we'll contact you as soon as possible" />
                     <button disabled={!messageTxt} onClick={() => messageTxt && sendEmail(messageTxt)}>Send Email</button>
                 </div>
             </SectionWrapper>
             <SectionWrapper classes="section-wrapper">
                 <div className="content-wrapper column">
-                    <table className="info-table left">
+                    <table className="info-table left">s
                         <thead>
                             <tr>
                                 <td className="subtitle" colSpan="2">Contact information</td> 
