@@ -2,8 +2,16 @@ import React, { useState } from 'react';
 import emailjs from 'emailjs-com';
 import SectionWrapper from './sectionWrapper';
 import ContentWrapper from './contentWrapper';
+import { Carousel } from 'react-responsive-carousel';
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 import CakeImage1 from '../assets/images/cakes/cake-1.jpg';
 import CakeImage2 from '../assets/images/cakes/cake-2.jpg';
+import CakeImage3 from '../assets/images/cakes/cake-3.jpg';
+import CakeImage4 from '../assets/images/cakes/cake-4.jpg';
+import CakeImage5 from '../assets/images/cakes/cake-5.jpg';
+import CakeImage6 from '../assets/images/cakes/cake-6.jpg';
+import CakeImage7 from '../assets/images/cakes/cake-7.jpg';
+
 
 const sendEmail = (msgTxt) => {
     const templateParams = {
@@ -32,12 +40,32 @@ const HomePage = () => {
                     <span className="text-holder">Everything started from cooking cakes for myself</span>
                 </ContentWrapper>
                 <ContentWrapper classes="content-wrapper">
-                    <img className="item-image" src={CakeImage1} alt="cake" />
+                    <Carousel>
+                        <div>
+                            <img src={CakeImage1} alt="cake" />
+                        </div>
+                        <div>
+                            <img src={CakeImage2} alt="cake" />
+                        </div>
+                        <div>
+                            <img src={CakeImage3} alt="cake" />
+                        </div>
+                    </Carousel>
                 </ContentWrapper>
             </SectionWrapper>
             <SectionWrapper classes="section-wrapper">
                 <ContentWrapper classes="content-wrapper">
-                    <img className="item-image" src={CakeImage2} alt="cake" />
+                    <Carousel>
+                            <div>
+                                <img src={CakeImage5} alt="cake" />
+                            </div>
+                            <div>
+                                <img src={CakeImage6} alt="cake" />
+                            </div>
+                            <div>
+                                <img src={CakeImage7} alt="cake" />
+                            </div>
+                    </Carousel>
                 </ContentWrapper>
                 <ContentWrapper classes="content-wrapper">
                     <span className="text-holder">I want to share them with you</span>
@@ -78,18 +106,14 @@ const HomePage = () => {
             </SectionWrapper>
             <SectionWrapper classes="section-wrapper">
                 <div className="content-wrapper column">
-                    <table className="info-table left">
+                    <table className="info-table">
                         <thead>
                             <tr>
                                 <td className="subtitle" colSpan="2">Contact information</td> 
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>Email us: </td>
-                                <td>cakes.sf.ca@gmail.com</td>
-                            </tr>
-                            <tr>
+                            <tr style={{ display: 'none' }}>
                                 <td>Call us: </td>
                                 <td>555-55-55</td>
                             </tr>

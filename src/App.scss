@@ -24,18 +24,13 @@ html {
 
 .content-wrapper {
   display: flex;
+  justify-content: center;
   flex-basis: 50%;
   padding: 40px;
-  justify-content: center;
-}
-
-.text-holder {
-  align-self: center;
-  text-align: justify;
 }
 
 .section-wrapper {
-  justify-content: space-around;
+  justify-content: center;
   display: flex;
   @media (max-width: 1200px) {
     display: flex;
@@ -53,12 +48,12 @@ html {
 }
 
 
-.info-table {  
+.info-table {
+  align-self: center; 
   thead {
     font-size: 30px;
     margin: 10px;
     text-align: center;
-
   }
 
   &.center {
@@ -125,7 +120,7 @@ button {
 }
 @media screen and (min-width: 320px) {
   .text-holder, tbody, button  {
-    font-size: calc(20px + 6 * ((100vw - 320px) / 680));
+    font-size: calc(16px + 6 * ((100vw - 320px) / 680));
   }
   .subtitle  {
     font-size: calc(25px + 6 * ((100vw - 320px) / 680));
