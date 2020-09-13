@@ -26,7 +26,7 @@ html {
   display: flex;
   flex-basis: 50%;
   padding: 40px;
-  text-align: center;
+  justify-content: center;
 }
 
 .text-holder {
@@ -65,7 +65,7 @@ html {
     tbody {
       td {
         text-align: center;
-        width: 200px;
+        width: 50px;
         height: 40px;
       }
     }
@@ -99,7 +99,11 @@ button {
   align-self: center;
 }
 
-.subtitle, button {
+.subtitle {
+  text-align: center;
+  padding: 30px;
+}
+button {
   margin: 30px;
 }
 
@@ -121,13 +125,13 @@ button {
 }
 @media screen and (min-width: 320px) {
   .text-holder, tbody, button  {
-    font-size: calc(16px + 6 * ((100vw - 320px) / 680));
-  }
-  .subtitle  {
     font-size: calc(20px + 6 * ((100vw - 320px) / 680));
   }
+  .subtitle  {
+    font-size: calc(25px + 6 * ((100vw - 320px) / 680));
+  }
   .title  {
-    font-size: calc(26px + 6 * ((100vw - 320px) / 680));
+    font-size: calc(40px + 6 * ((100vw - 320px) / 680));
   }
 }
 @media screen and (min-width: 1000px) {
