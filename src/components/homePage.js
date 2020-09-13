@@ -78,7 +78,7 @@ const HomePage = () => {
             </SectionWrapper>
             <SectionWrapper classes="section-wrapper">
                 <div className="content-wrapper column">
-                    <table className="info-table left">s
+                    <table className="info-table left">
                         <thead>
                             <tr>
                                 <td className="subtitle" colSpan="2">Contact information</td> 
