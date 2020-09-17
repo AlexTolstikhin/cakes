@@ -1,27 +1,26 @@
 import React, { useState } from 'react';
-import emailjs from 'emailjs-com';
+
+
+// Add aliases for reusableParts, assets and utils
+
 import SectionWrapper from './reusableParts/carousel/sectionWrapper';
 import ContentWrapper from './contentWrapper';
 import ImageCarousel from './reusableParts/wrappers/imageCarousel';
 import { allCakes } from '../assets/images/cakes';
 import Table from './reusableParts/table/table';
 
+import { sendEmail } from '../utils/utils';
 
-
+// Add text here
 // dummy text
 import { text1, text2 } from './dummyData';
 
-const sendEmail = (msgTxt) => {
-    const templateParams = {
-        message: msgTxt
-    };
-    emailjs.send('cakes_service_1','template_msigw2h', templateParams, 'user_ozo319RzkjkCpaFmJnaYp')
-        .then((response) => {
-           console.log('SUCCESS!', response.status, response.text);
-        }, (err) => {
-           console.log('FAILED...', err);
-        });
-}
+// consider to switch HomePage to class component ==>
+//  - adding router
+//  - payment (future)
+
+
+// Probably will be nice to implement EN/RU versions
 
 
 const HomePage = () => {
@@ -62,6 +61,7 @@ const HomePage = () => {
             </SectionWrapper>
             <SectionWrapper classes="section-wrapper">
                 <ContentWrapper classes="content-wrapper column">
+                    {/* Move email us to a separate component, consider adding additional inputs for email(validation ==> utils) or phone number(validation ==> utils) */}
                     <span className="subtitle">Email us</span>
                     <textarea onChange={({ target: { value = '' } }) => setMessageTxt(value)} placeholder="Please leave your contact information and some details about your order here and we'll contact you as soon as possible" />
                     <button disabled={!messageTxt} onClick={() => messageTxt && sendEmail(messageTxt)}>Send Email</button>
