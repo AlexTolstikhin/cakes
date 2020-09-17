@@ -21,7 +21,6 @@ const sendEmail = (msgTxt) => {
         }, (err) => {
            console.log('FAILED...', err);
         });
-
 }
 
 
@@ -51,6 +50,7 @@ const HomePage = () => {
             </SectionWrapper>
             <SectionWrapper classes="section-wrapper">
                 <Table
+                    classes="info-table"
                     colSpan={3}
                     subtitle="Prices"
                     rowsData={[
