@@ -1,16 +1,47 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import TableRow from './tableRow';
 
-const Table = ({ classes = "", colSpan = 1, rowsData = [], subtitle = '' }) =>
-    <table className={classes}>
-        <thead>
+const Table = ({
+    colSpan,
+    rowsData,
+    subtitle,
+    tableBodyStyles,
+    tableDataStyles,
+    tableHeadStyles,
+    tableStyles,
+}) =>   
+    <table styles={tableStyles}>
+        <thead styles={tableHeadStyles}>
             <tr>
-                <td className="subtitle" colSpan={colSpan.toString()}>{subtitle}</td> 
+                <td colSpan={colSpan.toString()} styles={tableDataStyles}>{subtitle}</td> 
             </tr>
         </thead>
-        <tbody>
-            {rowsData.map(row => <TableRow data={row}/>)}
+        <tbody styles={tableBodyStyles}>
+            {rowsData.map(row => <TableRow data={row} tableDataStyles={tableDataStyles}/>)}
         </tbody>
-    </table>
+    </table>;
+
+
+Table.defaultProps = {
+    colSpan: 1,
+    rowsData: [],
+    subtitle: '',
+    tableBodyStyles: {},
+    tableDataStyles: {},
+    tableHeadStyles: {},
+    tableStyles: {},
+};
+
+Table.propTypes = {
+    colSpan: PropTypes.oneOfType([ PropTypes.string, PropTypes.number ]),
+    rowsData: PropTypes.array,
+    subtitle: PropTypes.string,
+    tableBodyStyles: PropTypes.object,
+    tableDataStyles: PropTypes.object,
+    tableHeadStyles: PropTypes.object,
+    tableStyles: PropTypes.object,
+};
+
 
 export default Table;
