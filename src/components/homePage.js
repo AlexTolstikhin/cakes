@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import emailjs from 'emailjs-com';
-import SectionWrapper from './sectionWrapper';
+import SectionWrapper from './reusableParts/carousel/sectionWrapper';
 import ContentWrapper from './contentWrapper';
-import ImageCarousel from './imageCarousel';
+import ImageCarousel from './reusableParts/wrappers/imageCarousel';
 import { allCakes } from '../assets/images/cakes';
-import Table from './table';
+import Table from './reusableParts/table/table';
 
 
 

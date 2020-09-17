@@ -13,7 +13,7 @@ const ImageCarousel = ({ images = []  }) =>
         transitionTime={1500}
     >
         {
-            images.map(imgSrc =>  <div><img src={imgSrc} alt="cake" /></div>)
+            images.map(imgSrc => <div><img src={imgSrc} alt="cake" /></div>)
         }
     </Carousel>;
 
