@@ -97,6 +97,7 @@ const styles = {
         fontSize: `${25 + 6 * ((vw - 320) / 680)}px`
     }),
     largeFonts: vw => ({
+        fontFamily: 'Pacifico',
         fontSize: `${40 + 6 * ((vw - 320) / 680)}px`
     }),
 }
