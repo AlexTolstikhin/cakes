@@ -4,13 +4,14 @@ import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 
-const ImageCarousel = ({ images = []  }) => 
+const ImageCarousel = ({ showThumbs, images = []  }) => 
     <Carousel
         autoPlay
         infiniteLoop
         interval={5000}
         showArrows={false}
         showStatus={false}
+        showThumbs={showThumbs}
         transitionTime={1500}
     >
         {
@@ -19,10 +20,12 @@ const ImageCarousel = ({ images = []  }) =>
     </Carousel>;
 
 ImageCarousel.defaultProps = {
+    showThumbs: true,
     images: []
 };
 
 ImageCarousel.propTypes = {
+    showThumbs: PropTypes.bool,
     images: PropTypes.array
 };
 

@@ -152,7 +152,7 @@ const HomePage = () => {
                     <span style={{...textHolderStyles, ...smallFonts(windowWidth)}}>{text1}</span>
                 </ContentWrapper>
                 <ContentWrapper styles={contentWrapperStyles}>
-                    <ImageCarousel images={isSmallScreen ? allCakes : allCakes.filter((d, i) => i < 3)} />
+                    <ImageCarousel images={isSmallScreen ? allCakes : allCakes.filter((d, i) => i < 3)} showThumbs={!isSmallScreen} />
                 </ContentWrapper>
             </SectionWrapper>
             <SectionWrapper styles={sectionWrapperStyles(flexFlow)}>
