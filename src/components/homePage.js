@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 // Add aliases for reusableParts, assets and utils
 
 import SectionWrapper from './reusableParts/wrappers/sectionWrapper';
@@ -44,7 +44,7 @@ const styles = {
         padding: '40px'
     }),
     mainSection: isSmallScreen => ({
-        backgroundColor: lightyellow,
+        backgroundColor: 'lightyellow',
         fontFamily: `'Raleway', sans-serif`,
         margin: '0 auto',
         opacity: 0.8,
@@ -64,8 +64,7 @@ const styles = {
     },
     tableDataStyles: {
         height: '40px',
-        textAlign: 'center',
-        width: '50px'
+        textAlign: 'center'
     },
     tableHeadStyles: {
         fontSize: '30px',
@@ -86,6 +85,10 @@ const styles = {
 
     // font size handling styles
     // find VW should be a number
+    smallerFonts: vw => ({
+        fontSize: `${8 + 6 * ((vw - 320) / 680)}px`
+    }),
+
     smallFonts: vw => ({
         fontSize: `${16 + 6 * ((vw - 320) / 680)}px`
     }),
@@ -100,12 +103,32 @@ const styles = {
 
 
 const HomePage = () => {
+    const [windowWidth, setWindowSize] = useState(undefined);
+
+    useEffect(() => {
+        function handleResize() {
+            setWindowSize(window.innerWidth)
+        }
+
+        window.addEventListener('resize', handleResize);
+
+        handleResize();
+
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
+
+
     const [ messageTxt, setMessageTxt ] = useState('');
+    
     const {
         buttonStyles,
         contentWrapperStyles,
+        largeFonts,
         mainSection,
+        mediumFonts,
         sectionWrapperStyles,
+        smallFonts,
+        smallerFonts,
         subtitleStyles,
         tableBodyStyles,
         tableDataStyles,
@@ -113,21 +136,20 @@ const HomePage = () => {
         tableStyles,
         textareaStyles,
         textHolderStyles,
-        titleStyles,
     } = styles;
+    const isSmallScreen = windowWidth < 1200;
 
- 
     const contentWrapperFlexFlow = isSmallScreen ? 'column' : 'row';
 
 
     return (
         <SectionWrapper styles={mainSection(isSmallScreen)}>
             <ContentWrapper styles={contentWrapperStyles(contentWrapperFlexFlow)}>
-                <header styles={{...titleStyles, ...largeFonts(viewPort)}}>Homemade Honeycakes</header>
+                <header style={largeFonts(windowWidth)}>Homemade Honeycakes</header>
             </ContentWrapper>
             <SectionWrapper styles={sectionWrapperStyles}>
                 <ContentWrapper styles={contentWrapperStyles(contentWrapperFlexFlow)}>
-                    <span styles={{...textHolderStyles, ...smallFonts(viewPort)}}>{text1}</span>
+                    <span style={{...textHolderStyles, ...smallFonts(windowWidth)}}>{text1}</span>
                 </ContentWrapper>
                 <ContentWrapper styles={contentWrapperStyles(contentWrapperFlexFlow)}>
                     <ImageCarousel images={allCakes.filter((d, i) => i < 3)} />
@@ -138,14 +160,14 @@ const HomePage = () => {
                     <ImageCarousel images={allCakes.filter((d, i) => i >= 3)} />
                 </ContentWrapper>
                 <ContentWrapper styles={contentWrapperStyles(contentWrapperFlexFlow)}>
-                    <span styles={{...textHolderStyles, ...smallFonts(viewPort)}}>{text2}</span>
+                    <span style={{...textHolderStyles, ...smallFonts(windowWidth)}}>{text2}</span>
                 </ContentWrapper>
             </SectionWrapper>
             <SectionWrapper styles={sectionWrapperStyles}>
                 <Table
                     colSpan={3}
                     subtitle="Prices"
-                    tableBodyStyles={{...tableBodyStyles, ...smallFonts(viewPort)}}
+                    tableBodyStyles={{...tableBodyStyles, ...smallerFonts(windowWidth)}}
                     tableDataStyles={tableDataStyles}
                     tableHeadStyles={tableHeadStyles}
                     tableStyles={tableStyles}
@@ -159,26 +181,25 @@ const HomePage = () => {
             <SectionWrapper styles={sectionWrapperStyles}>
                 <ContentWrapper styles={contentWrapperStyles('column')}>
                     {/* Move email us to a separate component, consider adding additional inputs for email(validation ==> utils) or phone number(validation ==> utils) */}
-                    <span styles={{...subtitleStyles, ...mediumFonts(viewPort)}}>Email us</span>
+                    <span style={{...subtitleStyles, ...mediumFonts(windowWidth)}}>Email us</span>
                     <textarea
                         onChange={({ target: { value = '' } }) => setMessageTxt(value)}
                         placeholder="Please leave your contact information and some details about your order here and we'll contact you as soon as possible"
-                        styles={textareaStyles}
+                        style={textareaStyles}
                     />
                     <button
                         disabled={!messageTxt}
                         onClick={() => messageTxt && sendEmail(messageTxt)}
-                        styles={{...buttonStyles, ...smallFonts(viewPort)}}>
+                        style={{...buttonStyles, ...smallFonts(windowWidth)}}>
                             Send Email
                     </button>
                 </ContentWrapper>
             </SectionWrapper>
             <SectionWrapper styles={sectionWrapperStyles}>
-                <ContentWrapper styles={contentWrapperStyles('column')}>
                     <Table
                         colSpan={2}
                         subtitle="Contact information"
-                        tableBodyStyles={{...tableBodyStyles, ...smallFonts(viewPort)}}
+                        tableBodyStyles={{...tableBodyStyles, ...smallerFonts(windowWidth)}}
                         tableDataStyles={tableDataStyles}
                         tableHeadStyles={tableHeadStyles}
                         tableStyles={tableStyles}
@@ -187,7 +208,6 @@ const HomePage = () => {
                             ["Instagram", "<a href='https://www.instagram.com/p/B_GY234hIAh/?utm_source=ig_web_copy_link' target='_blank'>Click me</a>"],
                         ]}
                     />
-                </ContentWrapper>
             </SectionWrapper>
         </SectionWrapper>
     );

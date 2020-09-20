@@ -11,13 +11,13 @@ const Table = ({
     tableHeadStyles,
     tableStyles,
 }) =>   
-    <table styles={tableStyles}>
-        <thead styles={tableHeadStyles}>
+    <table style={tableStyles}>
+        <thead style={tableHeadStyles}>
             <tr>
-                <td colSpan={colSpan.toString()} styles={tableDataStyles}>{subtitle}</td> 
+                <td colSpan={colSpan.toString()} style={tableDataStyles}>{subtitle}</td> 
             </tr>
         </thead>
-        <tbody styles={tableBodyStyles}>
+        <tbody style={tableBodyStyles}>
             {rowsData.map(row => <TableRow data={row} tableDataStyles={tableDataStyles}/>)}
         </tbody>
     </table>;

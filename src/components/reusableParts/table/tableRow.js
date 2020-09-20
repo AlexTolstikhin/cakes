@@ -5,7 +5,7 @@ import parser from 'html-react-parser';
 
 const TableRow = ({ data, tableDataStyles }) =>
     <tr>
-        {data.map(i => <td styles={tableDataStyles}>{parser(i)}</td>)}
+        {data.map(i => <td style={tableDataStyles}>{parser(i)}</td>)}
     </tr>;
 
 TableRow.defaultProps = {

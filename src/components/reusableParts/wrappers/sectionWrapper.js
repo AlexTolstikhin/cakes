@@ -1,16 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const SectionWrapper = ({ children, sectionWrapperStyles }) => <section style={sectionWrapperStyles}>{children}</section>;
+const SectionWrapper = ({ children, styles }) => <section style={styles}>{children}</section>;
 
 SectionWrapper.defaultProps = {
     children: PropTypes.object,
-    sectionWrapperStyles: PropTypes.object
+    styles: PropTypes.object
 };
 
 SectionWrapper.propTypes = {
     children: {},
-    sectionWrapperStyles: {}
+    styles: {}
 };
 
 export default SectionWrapper;

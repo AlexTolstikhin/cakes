@@ -2,16 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 
-const ContentWrapper = ({ children, contentWrapperStyles }) => <div style={contentWrapperStyles}>{children}</div>;
+const ContentWrapper = ({ children, styles }) => <div style={styles}>{children}</div>;
 
 ContentWrapper.defaultProps = {
     children: PropTypes.object,
-    contentWrapperStyles: PropTypes.object
+    styles: PropTypes.object
 };
 
 ContentWrapper.propTypes = {
     children: {},
-    contentWrapperStyles: {}
+    styles: {}
 };
 
 export default ContentWrapper;
