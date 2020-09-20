@@ -86,7 +86,7 @@ const styles = {
     // font size handling styles
     // find VW should be a number
     smallerFonts: vw => ({
-        fontSize: `${8 + 6 * ((vw - 320) / 680)}px`
+        fontSize: `${12 + 6 * ((vw - 320) / 680)}px`
     }),
 
     smallFonts: vw => ({
