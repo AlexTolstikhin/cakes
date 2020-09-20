@@ -36,13 +36,12 @@ const styles = {
         margin: '30px',
         width: '200px'
     },
-    contentWrapperStyles: (flexFlow = "row") => ({
+    contentWrapperStyles: {
         display: 'flex',
         flexBasis: '50%',
-        flexFlow: flexFlow,
         justifyContent: 'center',
         padding: '40px'
-    }),
+    },
     mainSection: isSmallScreen => ({
         backgroundColor: 'lightyellow',
         fontFamily: `'Raleway', sans-serif`,
@@ -50,10 +49,11 @@ const styles = {
         opacity: 0.8,
         width: isSmallScreen ? '100%' : '80%'
     }),
-    sectionWrapperStyles: {
+    sectionWrapperStyles: (flexFlow = "row") => ({
         display: 'flex', 
+        flexFlow: flexFlow,
         justifyContent: 'center'
-    },
+    }),
     subtitleStyles: {
         fontSize: '24px',
         padding: '30px',
@@ -140,31 +140,30 @@ const HomePage = () => {
     } = styles;
     const isSmallScreen = windowWidth < 1200;
 
-    const contentWrapperFlexFlow = isSmallScreen ? 'column' : 'row';
-
+    const flexFlow = isSmallScreen ? 'column' : 'row';
 
     return (
         <SectionWrapper styles={mainSection(isSmallScreen)}>
-            <ContentWrapper styles={contentWrapperStyles(contentWrapperFlexFlow)}>
+            <ContentWrapper styles={contentWrapperStyles}>
                 <header style={largeFonts(windowWidth)}>Homemade Honeycakes</header>
             </ContentWrapper>
-            <SectionWrapper styles={sectionWrapperStyles}>
-                <ContentWrapper styles={contentWrapperStyles(contentWrapperFlexFlow)}>
+            <SectionWrapper styles={sectionWrapperStyles(flexFlow)}>
+                <ContentWrapper styles={contentWrapperStyles}>
                     <span style={{...textHolderStyles, ...smallFonts(windowWidth)}}>{text1}</span>
                 </ContentWrapper>
-                <ContentWrapper styles={contentWrapperStyles(contentWrapperFlexFlow)}>
-                    <ImageCarousel images={allCakes.filter((d, i) => i < 3)} />
+                <ContentWrapper styles={contentWrapperStyles}>
+                    <ImageCarousel images={isSmallScreen ? allCakes : allCakes.filter((d, i) => i < 3)} />
                 </ContentWrapper>
             </SectionWrapper>
-            <SectionWrapper styles={sectionWrapperStyles}>
-                <ContentWrapper styles={contentWrapperStyles(contentWrapperFlexFlow)}>
+            <SectionWrapper styles={sectionWrapperStyles(flexFlow)}>
+                {!isSmallScreen && <ContentWrapper styles={contentWrapperStyles}>
                     <ImageCarousel images={allCakes.filter((d, i) => i >= 3)} />
-                </ContentWrapper>
-                <ContentWrapper styles={contentWrapperStyles(contentWrapperFlexFlow)}>
+                </ContentWrapper>}
+                <ContentWrapper styles={contentWrapperStyles}>
                     <span style={{...textHolderStyles, ...smallFonts(windowWidth)}}>{text2}</span>
                 </ContentWrapper>
             </SectionWrapper>
-            <SectionWrapper styles={sectionWrapperStyles}>
+            <SectionWrapper styles={sectionWrapperStyles(flexFlow)}>
                 <Table
                     colSpan={3}
                     subtitle="Prices"
@@ -179,8 +178,8 @@ const HomePage = () => {
                     ]}
                 />
             </SectionWrapper>
-            <SectionWrapper styles={sectionWrapperStyles}>
-                <ContentWrapper styles={contentWrapperStyles('column')}>
+            <SectionWrapper styles={sectionWrapperStyles(flexFlow)}>
+                <ContentWrapper styles={{...contentWrapperStyles, flexFlow: 'column'}}>
                     {/* Move email us to a separate component, consider adding additional inputs for email(validation ==> utils) or phone number(validation ==> utils) */}
                     <span style={{...subtitleStyles, ...mediumFonts(windowWidth)}}>Email us</span>
                     <textarea
@@ -196,7 +195,7 @@ const HomePage = () => {
                     </button>
                 </ContentWrapper>
             </SectionWrapper>
-            <SectionWrapper styles={sectionWrapperStyles}>
+            <SectionWrapper styles={sectionWrapperStyles(flexFlow)}>
                     <Table
                         colSpan={2}
                         subtitle="Contact information"
