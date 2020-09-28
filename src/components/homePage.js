@@ -74,7 +74,6 @@ const styles = {
     },
     tableHeadStyles: {
         fontSize: '30px',
-        margin: '10px',
         textAlign: 'center'
     },
     textareaStyles: {
@@ -183,16 +182,16 @@ const HomePage = () => {
                     tableHeadStyles={tableHeadStyles}
                     tableStyles={tableStyles}
                     rowsData={[
-                        ['8" inches', "►►►", "60$"],
-                        ['10" inches', "►►►", "70$"],
-                        ['12" inches', "►►►", "80$"],
+                        ['8 inches', "............................................................................................", "60$"],
+                        ['10 inches', "............................................................................................", "70$"],
+                        ['12 inches', "............................................................................................", "80$"],
                     ]}
                 />
             </SectionWrapper>
             <SectionWrapper styles={sectionWrapperStyles(flexFlow)}>
                     <ContentWrapper styles={{ ...contentWrapperStyles, flexFlow: 'column'}}>
                         <span style={{...subtitleStyles, ...mediumFonts}}>Delivery and ordering</span>
-                        <span style={{...textHolderStyles, ...smallFonts}}>Please, order the cake 2 days prior to the delivery day. Delivery throughout Bay Area is availbale for the additional fee. Otherwise you can pick up cake in Berkely at specified time.</span>
+                        <span style={{...textHolderStyles, ...smallFonts}}>Please, order the cake 2 days prior to the delivery day. Delivery throughout Bay Area is availbale for the additional fee. Otherwise you can pick up cake in Berkely at a specified time.</span>
                     </ContentWrapper>
             </SectionWrapper>
             <SectionWrapper styles={sectionWrapperStyles(flexFlow)}>
@@ -221,7 +220,11 @@ const HomePage = () => {
                     >
                         <FontAwesomeIcon icon={faInstagram} size="3x" style={{ cursor: "pointer", color: "black", marginRight: '10px' }} />
                     </a>
-                    <FontAwesomeIcon data-tip="+1 510 520 01 01" icon={faPhoneSquare} size="3x" style={{ cursor: "pointer", color: "black" }} />
+                    <a
+                        href="tel: +1 713 480 3016"
+                    >
+                        <FontAwesomeIcon data-tip="+1 713 480 3016" icon={faPhoneSquare} size="3x" style={{ cursor: "pointer", color: "black" }} />
+                    </a>
                     <ReactTooltip />
                 </ContentWrapper>
             </SectionWrapper>
