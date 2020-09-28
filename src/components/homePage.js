@@ -201,7 +201,7 @@ const HomePage = () => {
             <SectionWrapper styles={sectionWrapperStyles(flexFlow)}>
                 <ContentWrapper styles={{ ...contentWrapperStyles }}>
                     <a
-                        href='https://www.instagram.com/p/B_GY234hIAh/?utm_source=ig_web_copy_link'
+                        href='https://www.instagram.com/honeycake_sf/'
                         target='_blank'
                     >
                         <FontAwesomeIcon icon={faInstagram} size="3x" style={{ cursor: "pointer", color: "black", marginRight: '10px' }} />

@@ -1,4 +1,4 @@
-export const text1 = `Medovik (Russian: Медовик, from мёд – 'honey') is a Slavic layer cake popular in countries of the former Soviet Union. The identifying ingredients are honey and smetana (sour cream) or condensed milk.[1]
+export const text1 = `Medovik \t (Russian: Медовик, from мёд – 'honey') is a Slavic layer cake popular in countries of the former Soviet Union. The identifying ingredients are honey and smetana (sour cream) or condensed milk.[1]
 
 It is a dessert which is known for its lengthy preparation time. It consists of layers of sponge cake with a cream filling and is often covered with nuts or crumbs made from leftover cake. While the thin layers harden shortly after coming out of the oven, the moisture of the filling softens it again over time.[2] There are many recipes and variations of this cake, but, the main ingredient is honey, giving it the characteristic taste and flavor.[3]`;
 
