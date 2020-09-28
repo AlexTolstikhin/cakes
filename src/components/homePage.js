@@ -50,7 +50,7 @@ const styles = {
     },
     mainSection: isSmallScreen => ({
         backgroundColor: 'lightyellow',
-        fontFamily: `'Raleway', sans-serif`,
+        fontFamily: `'Baloo Tammudu 2', cursive`,
         margin: '0 auto',
         opacity: 0.8,
         width: isSmallScreen ? '100%' : '80%'
@@ -102,7 +102,7 @@ const styles = {
 
     largeFonts: {
         fontFamily: 'Pacifico',
-        fontSize: `calc(50px + 0.4vw)`
+        fontSize: `calc(60px + 0.4vw)`
     }
 }
 
@@ -182,7 +182,7 @@ const HomePage = () => {
                 />
             </SectionWrapper>
             <SectionWrapper styles={sectionWrapperStyles(flexFlow)}>
-                <ContentWrapper styles={{...contentWrapperStyles, flexFlow: 'column'}}>
+                {false && <ContentWrapper styles={{...contentWrapperStyles, flexFlow: 'column'}}>
                     {/* Move email us to a separate component, consider adding additional inputs for email(validation ==> utils) or phone number(validation ==> utils) */}
                     <span style={{...subtitleStyles, ...mediumFonts}}>Email us</span>
                     <textarea
@@ -196,13 +196,14 @@ const HomePage = () => {
                         style={{...buttonStyles, ...smallFonts}}>
                             Send Email
                     </button>
-                </ContentWrapper>
+                </ContentWrapper>}
             </SectionWrapper>
             <SectionWrapper styles={sectionWrapperStyles(flexFlow)}>
                 <ContentWrapper styles={{ ...contentWrapperStyles }}>
                     <a
                         href='https://www.instagram.com/honeycake_sf/'
                         target='_blank'
+                        rel="noopener noreferrer"
                     >
                         <FontAwesomeIcon icon={faInstagram} size="3x" style={{ cursor: "pointer", color: "black", marginRight: '10px' }} />
                     </a>
