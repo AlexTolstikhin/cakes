@@ -50,7 +50,7 @@ const styles = {
     },
     mainSection: isSmallScreen => ({
         backgroundColor: 'lightyellow',
-        fontFamily: `'Baloo Tammudu 2', cursive`,
+        fontFamily: `'Raleway', sans-serif`,
         margin: '0 auto',
         opacity: 0.8,
         width: isSmallScreen ? '100%' : '80%'
@@ -152,20 +152,28 @@ const HomePage = () => {
             </ContentWrapper>
             <SectionWrapper styles={sectionWrapperStyles(flexFlow)}>
                 <ContentWrapper styles={contentWrapperStyles}>
-                    <span style={{...textHolderStyles, ...smallFonts}}>{text1}</span>
+                    <span style={{...textHolderStyles, ...smallFonts}}>
+                        <span>Hi my name is Eldana and I love baking!!!</span>
+                        <br />
+                        <br />
+                        <span>I would love to make a cake for you, so you can enjoy the taste of the freshly cooked, homemade, delicious honeycake.</span>
+                        <br />
+                        <br />
+                        <span>Let me share a few photos of the cakes I've made as well as prices and sizes available, and provide you with some contact information here.</span>
+                    </span>
                 </ContentWrapper>
                 <ContentWrapper styles={contentWrapperStyles}>
-                    <ImageCarousel images={isSmallScreen ? allCakes : allCakes.filter((d, i) => i < 3)} showThumbs={!isSmallScreen} />
+                    <ImageCarousel images={isSmallScreen ? allCakes : allCakes.filter((d, i) => i < 5)} showThumbs={!isSmallScreen} />
                 </ContentWrapper>
             </SectionWrapper>
-            <SectionWrapper styles={sectionWrapperStyles(flexFlow)}>
+            {false && <SectionWrapper styles={sectionWrapperStyles(flexFlow)}>
                 {!isSmallScreen && <ContentWrapper styles={contentWrapperStyles}>
                     <ImageCarousel images={allCakes.filter((d, i) => i >= 3)} />
                 </ContentWrapper>}
                 <ContentWrapper styles={contentWrapperStyles}>
                     <span style={{...textHolderStyles, ...smallFonts}}>{text2}</span>
                 </ContentWrapper>
-            </SectionWrapper>
+            </SectionWrapper>}
             <SectionWrapper styles={sectionWrapperStyles(flexFlow)}>
                 <Table
                     colSpan={3}
@@ -180,6 +188,12 @@ const HomePage = () => {
                         ['12" inches', "►►►", "80$"],
                     ]}
                 />
+            </SectionWrapper>
+            <SectionWrapper styles={sectionWrapperStyles(flexFlow)}>
+                    <ContentWrapper styles={{ ...contentWrapperStyles, flexFlow: 'column'}}>
+                        <span style={{...subtitleStyles, ...mediumFonts}}>Delivery and ordering</span>
+                        <span style={{...textHolderStyles, ...smallFonts}}>Please, order the cake 2 days prior to the delivery day. Delivery throughout Bay Area is availbale for the additional fee. Otherwise you can pick up cake in Berkely at specified time.</span>
+                    </ContentWrapper>
             </SectionWrapper>
             <SectionWrapper styles={sectionWrapperStyles(flexFlow)}>
                 {false && <ContentWrapper styles={{...contentWrapperStyles, flexFlow: 'column'}}>
