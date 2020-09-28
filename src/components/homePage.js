@@ -7,7 +7,13 @@ import ImageCarousel from './reusableParts/carousel/imageCarousel';
 import { allCakes } from '../assets/images/cakes';
 import Table from './reusableParts/table/table';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faInstagram } from '@fortawesome/free-brands-svg-icons';
+import { faPhoneSquare } from '@fortawesome/free-solid-svg-icons';
+
 import { sendEmail } from '../utils/utils';
+
+import ReactTooltip from 'react-tooltip';
 
 // Add text here
 // dummy text
@@ -76,30 +82,28 @@ const styles = {
         minHeight: '200px',
         width: '100%'
     },
-    textHolderStyles: {
-        fontSize: '18px'
-    },
     tableStyles: {
         alignSelf: 'center'
     },
 
     // font size handling styles
     // find VW should be a number
-    smallerFonts: vw => ({
-        fontSize: `${12 + 6 * ((vw - 320) / 680)}px`
-    }),
+    smallerFonts: {
+        fontSize: `calc(14px + 0.4vw)`
+    },
 
-    smallFonts: vw => ({
-        fontSize: `${16 + 6 * ((vw - 320) / 680)}px`
-    }),
+    smallFonts: {
+        fontSize: `calc(16px + 0.4vw)`
+    },
 
-    mediumFonts: vw => ({
-        fontSize: `${25 + 6 * ((vw - 320) / 680)}px`
-    }),
-    largeFonts: vw => ({
+    mediumFonts: {
+        fontSize: `calc(20px + 0.4vw)`
+    },
+
+    largeFonts: {
         fontFamily: 'Pacifico',
-        fontSize: `${40 + 6 * ((vw - 320) / 680)}px`
-    }),
+        fontSize: `calc(50px + 0.4vw)`
+    }
 }
 
 
@@ -141,15 +145,14 @@ const HomePage = () => {
     const isSmallScreen = windowWidth < 1200;
 
     const flexFlow = isSmallScreen ? 'column' : 'row';
-
     return (
         <SectionWrapper styles={mainSection(isSmallScreen)}>
             <ContentWrapper styles={contentWrapperStyles}>
-                <header style={largeFonts(windowWidth)}>Homemade Honeycakes</header>
+                <header style={largeFonts}>Homemade Honeycakes</header>
             </ContentWrapper>
             <SectionWrapper styles={sectionWrapperStyles(flexFlow)}>
                 <ContentWrapper styles={contentWrapperStyles}>
-                    <span style={{...textHolderStyles, ...smallFonts(windowWidth)}}>{text1}</span>
+                    <span style={{...textHolderStyles, ...smallFonts}}>{text1}</span>
                 </ContentWrapper>
                 <ContentWrapper styles={contentWrapperStyles}>
                     <ImageCarousel images={isSmallScreen ? allCakes : allCakes.filter((d, i) => i < 3)} showThumbs={!isSmallScreen} />
@@ -160,28 +163,28 @@ const HomePage = () => {
                     <ImageCarousel images={allCakes.filter((d, i) => i >= 3)} />
                 </ContentWrapper>}
                 <ContentWrapper styles={contentWrapperStyles}>
-                    <span style={{...textHolderStyles, ...smallFonts(windowWidth)}}>{text2}</span>
+                    <span style={{...textHolderStyles, ...smallFonts}}>{text2}</span>
                 </ContentWrapper>
             </SectionWrapper>
             <SectionWrapper styles={sectionWrapperStyles(flexFlow)}>
                 <Table
                     colSpan={3}
                     subtitle="Prices"
-                    tableBodyStyles={{...tableBodyStyles, ...smallerFonts(windowWidth)}}
+                    tableBodyStyles={{...tableBodyStyles, ...smallerFonts}}
                     tableDataStyles={tableDataStyles}
                     tableHeadStyles={tableHeadStyles}
                     tableStyles={tableStyles}
                     rowsData={[
-                        ['8"', "-", "60$"],
-                        ['10"', "-", "70$"],
-                        ['12"', "-", "80$"],
+                        ['8" inches', "►►►", "60$"],
+                        ['10" inches', "►►►", "70$"],
+                        ['12" inches', "►►►", "80$"],
                     ]}
                 />
             </SectionWrapper>
             <SectionWrapper styles={sectionWrapperStyles(flexFlow)}>
                 <ContentWrapper styles={{...contentWrapperStyles, flexFlow: 'column'}}>
                     {/* Move email us to a separate component, consider adding additional inputs for email(validation ==> utils) or phone number(validation ==> utils) */}
-                    <span style={{...subtitleStyles, ...mediumFonts(windowWidth)}}>Email us</span>
+                    <span style={{...subtitleStyles, ...mediumFonts}}>Email us</span>
                     <textarea
                         onChange={({ target: { value = '' } }) => setMessageTxt(value)}
                         placeholder="Please leave your contact information and some details about your order here and we'll contact you as soon as possible"
@@ -190,24 +193,22 @@ const HomePage = () => {
                     <button
                         disabled={!messageTxt}
                         onClick={() => messageTxt && sendEmail(messageTxt)}
-                        style={{...buttonStyles, ...smallFonts(windowWidth)}}>
+                        style={{...buttonStyles, ...smallFonts}}>
                             Send Email
                     </button>
                 </ContentWrapper>
             </SectionWrapper>
             <SectionWrapper styles={sectionWrapperStyles(flexFlow)}>
-                    <Table
-                        colSpan={2}
-                        subtitle="Contact information"
-                        tableBodyStyles={{...tableBodyStyles, ...smallerFonts(windowWidth)}}
-                        tableDataStyles={tableDataStyles}
-                        tableHeadStyles={tableHeadStyles}
-                        tableStyles={tableStyles}
-                        rowsData={[
-                            ["Phone: ", "555-**-**"],
-                            ["Instagram", "<a href='https://www.instagram.com/p/B_GY234hIAh/?utm_source=ig_web_copy_link' target='_blank'>Click me</a>"],
-                        ]}
-                    />
+                <ContentWrapper styles={{ ...contentWrapperStyles }}>
+                    <a
+                        href='https://www.instagram.com/p/B_GY234hIAh/?utm_source=ig_web_copy_link'
+                        target='_blank'
+                    >
+                        <FontAwesomeIcon icon={faInstagram} size="3x" style={{ cursor: "pointer", color: "black", marginRight: '10px' }} />
+                    </a>
+                    <FontAwesomeIcon data-tip="+1 510 520 01 01" icon={faPhoneSquare} size="3x" style={{ cursor: "pointer", color: "black" }} />
+                    <ReactTooltip />
+                </ContentWrapper>
             </SectionWrapper>
         </SectionWrapper>
     );
