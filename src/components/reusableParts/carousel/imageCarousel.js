@@ -7,6 +7,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 const ImageCarousel = ({ showThumbs, images = []  }) => 
     <Carousel
         autoPlay
+        dynamicHeight
         infiniteLoop
         interval={5000}
         showArrows={false}
