@@ -4,7 +4,7 @@ import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 
-const ImageCarousel = ({ showThumbs, images = []  }) => 
+const ImageCarousel = ({ showThumbs, images = [], styles = {}  }) => 
     <Carousel
         autoPlay
         dynamicHeight
@@ -14,6 +14,7 @@ const ImageCarousel = ({ showThumbs, images = []  }) =>
         showStatus={false}
         showThumbs={showThumbs}
         transitionTime={1500}
+        style={styles}
     >
         {
             images.map(imgSrc => <div><img src={imgSrc} alt="cake" /></div>)

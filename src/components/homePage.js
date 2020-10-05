@@ -49,7 +49,6 @@ const styles = {
         padding: '40px'
     },
     mainSection: isSmallScreen => ({
-        backgroundColor: 'lightyellow',
         fontFamily: `'Raleway', sans-serif`,
         margin: '0 auto',
         opacity: 0.8,
@@ -79,10 +78,17 @@ const styles = {
     textareaStyles: {
         fontSize: '20px',
         minHeight: '200px',
-        width: '100%'
+        height: '100%'
+    },
+    textHolderStyles: {
+        margin: '20px',
+        background: 'lightblue',
+        padding: '23px',
+        width: '80%',
+        borderRadius: '0 40px'
     },
     tableStyles: {
-        alignSelf: 'center'
+        alignSelf: 'center',
     },
 
     // font size handling styles
@@ -145,13 +151,13 @@ const HomePage = () => {
 
     const flexFlow = isSmallScreen ? 'column' : 'row';
     return (
-        <SectionWrapper styles={mainSection(isSmallScreen)}>
-            <ContentWrapper styles={contentWrapperStyles}>
-                <header style={largeFonts}>Homemade Honeycakes</header>
-            </ContentWrapper>
-            <SectionWrapper styles={sectionWrapperStyles(flexFlow)}>
-                <ContentWrapper styles={contentWrapperStyles}>
-                    <span style={{...textHolderStyles, ...smallFonts}}>
+        <div>
+            <section style={{ display: 'flex', height: '100%', justifyContent: 'center' }}>
+                <header style={{...largeFonts, margin: '15px'}}>Homemade Honeycakes</header>
+            </section>
+            <section style={{ display: 'flex', height: '100%', justifyContent: 'center' }}>
+                <div style={{  display: 'flex', flexFlow: isSmallScreen ? 'column' : 'row'}}>
+                    <span style={{...smallFonts, flexBasis: '50%'}}>
                         <span>Hi my name is Eldana and I love baking!!!</span>
                         <br />
                         <br />
@@ -160,75 +166,42 @@ const HomePage = () => {
                         <br />
                         <span>Let me share a few photos of the cakes I've made as well as prices and sizes available, and provide you with some contact information here.</span>
                     </span>
-                </ContentWrapper>
-                <ContentWrapper styles={contentWrapperStyles}>
-                    <ImageCarousel images={isSmallScreen ? allCakes : allCakes.filter((d, i) => i < 5)} showThumbs={!isSmallScreen} />
-                </ContentWrapper>
-            </SectionWrapper>
-            {false && <SectionWrapper styles={sectionWrapperStyles(flexFlow)}>
-                {!isSmallScreen && <ContentWrapper styles={contentWrapperStyles}>
-                    <ImageCarousel images={allCakes.filter((d, i) => i >= 3)} />
-                </ContentWrapper>}
-                <ContentWrapper styles={contentWrapperStyles}>
-                    <span style={{...textHolderStyles, ...smallFonts}}>{text2}</span>
-                </ContentWrapper>
-            </SectionWrapper>}
-            <SectionWrapper styles={sectionWrapperStyles(flexFlow)}>
-                <Table
-                    colSpan={3}
-                    subtitle="Prices"
-                    tableBodyStyles={{...tableBodyStyles, ...smallerFonts}}
-                    tableDataStyles={tableDataStyles}
-                    tableHeadStyles={tableHeadStyles}
-                    tableStyles={tableStyles}
-                    rowsData={[
-                        ['8 inches', "......................................", "60$"],
-                        ['10 inches', "......................................", "70$"],
-                        ['12 inches', "......................................", "80$"],
-                    ]}
-                />
-            </SectionWrapper>
-            <SectionWrapper styles={sectionWrapperStyles(flexFlow)}>
-                    <ContentWrapper styles={{ ...contentWrapperStyles, flexFlow: 'column'}}>
-                        <span style={{...subtitleStyles, ...mediumFonts}}>Delivery and ordering</span>
-                        <span style={{...textHolderStyles, ...smallFonts}}>Please, order the cake 2 days prior to the delivery day. Delivery throughout Bay Area is availbale for the additional fee. Otherwise you can pick up cake in Berkely at a specified time.</span>
-                    </ContentWrapper>
-            </SectionWrapper>
-            <SectionWrapper styles={sectionWrapperStyles(flexFlow)}>
-                {false && <ContentWrapper styles={{...contentWrapperStyles, flexFlow: 'column'}}>
-                    {/* Move email us to a separate component, consider adding additional inputs for email(validation ==> utils) or phone number(validation ==> utils) */}
-                    <span style={{...subtitleStyles, ...mediumFonts}}>Email us</span>
-                    <textarea
-                        onChange={({ target: { value = '' } }) => setMessageTxt(value)}
-                        placeholder="Please leave your contact information and some details about your order here and we'll contact you as soon as possible"
-                        style={textareaStyles}
+                    <span style={{...smallFonts, flexBasis: '50%'}}>
+                        <ImageCarousel images={allCakes.filter((d, i) => i >= 3)} />
+                    </span>
+                </div>
+            </section>
+            <section style={{ display: 'flex', height: '100%', justifyContent: 'center' }}>
+                    <Table
+                        colSpan={3}
+                        subtitle="Prices"
+                        tableBodyStyles={{...tableBodyStyles, ...smallerFonts}}
+                        tableDataStyles={tableDataStyles}
+                        tableHeadStyles={tableHeadStyles}
+                        tableStyles={tableStyles}
+                        rowsData={[
+                            ['8 inches', "......................................", "60$"],
+                            ['10 inches', "......................................", "70$"],
+                            ['12 inches', "......................................", "80$"],
+                        ]}
                     />
-                    <button
-                        disabled={!messageTxt}
-                        onClick={() => messageTxt && sendEmail(messageTxt)}
-                        style={{...buttonStyles, ...smallFonts}}>
-                            Send Email
-                    </button>
-                </ContentWrapper>}
-            </SectionWrapper>
-            <SectionWrapper styles={sectionWrapperStyles(flexFlow)}>
-                <ContentWrapper styles={{ ...contentWrapperStyles }}>
-                    <a
-                        href='https://www.instagram.com/honeycake_sf/'
-                        target='_blank'
-                        rel="noopener noreferrer"
-                    >
-                        <FontAwesomeIcon icon={faInstagram} size="3x" style={{ cursor: "pointer", color: "black", marginRight: '10px' }} />
-                    </a>
-                    <a
-                        href="tel: +1 713 480 3016"
-                    >
-                        <FontAwesomeIcon data-tip="+1 713 480 3016" icon={faPhoneSquare} size="3x" style={{ cursor: "pointer", color: "black" }} />
-                    </a>
-                    <ReactTooltip />
-                </ContentWrapper>
-            </SectionWrapper>
-        </SectionWrapper>
+            </section>
+            <section style={{ display: 'flex', height: '100%', justifyContent: 'center' }}>
+                <a
+                href='https://www.instagram.com/honeycake_sf/'
+                target='_blank'
+                rel="noopener noreferrer"
+                >
+                <FontAwesomeIcon icon={faInstagram} size="3x" style={{ cursor: "pointer", color: "black", marginRight: '10px' }} />
+                </a>
+                <a
+                href="tel: +1 713 480 3016"
+                >
+                <FontAwesomeIcon data-tip="+1 713 480 3016" icon={faPhoneSquare} size="3x" style={{ cursor: "pointer", color: "black" }} />
+                </a>
+                <ReactTooltip />
+            </section>
+        </div>
     );
 }
 
