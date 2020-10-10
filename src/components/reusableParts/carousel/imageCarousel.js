@@ -8,22 +8,22 @@ const ImageCarousel = () => {
         <div id="carouselExampleFade" className="carousel slide carousel-fade" data-ride="carousel">
         <div className="carousel-inner">
             <div className="carousel-item active">
-            <img src={allCakes[0]} className="d-block w-100" alt="..."/>
+            <img src={allCakes[0]} className="d-block w-100" alt="cake"/>
             </div>
             <div className="carousel-item">
-            <img src={allCakes[3]} className="d-block w-100" alt="..."/>
+            <img src={allCakes[3]} className="d-block w-100" alt="cake"/>
             </div>
             <div className="carousel-item">
-            <img src={allCakes[2]} className="d-block w-100" alt="..."/>
+            <img src={allCakes[2]} className="d-block w-100" alt="cake"/>
             </div>
             <div className="carousel-item">
-            <img src={allCakes[4]} className="d-block w-100" alt="..."/>
+            <img src={allCakes[4]} className="d-block w-100" alt="cake"/>
             </div>
             <div className="carousel-item">
-            <img src={allCakes[5]} className="d-block w-100" alt="..."/>
+            <img src={allCakes[5]} className="d-block w-100" alt="cake"/>
             </div>
             <div className="carousel-item">
-            <img src={allCakes[6]} className="d-block w-100" alt="..."/>
+            <img src={allCakes[6]} className="d-block w-100" alt="cake"/>
             </div>
         </div>
         <a className="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">

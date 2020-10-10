@@ -87,8 +87,9 @@ const styles = {
     },
 
     largeFonts: {
+        color: 'white',
         fontFamily: 'Pacifico',
-        fontSize: `calc(60px + 0.4vw)`
+        fontSize: `calc(60px + 1.5vw)`
     }
 }
 
