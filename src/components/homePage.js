@@ -121,7 +121,7 @@ const HomePage = () => {
         tableHeadStyles,
         tableStyles,
     } = styles;
-    const isSmallScreen = windowWidth < 1200;
+    const isSmallScreen = windowWidth < 800;
 
     const flexFlow = isSmallScreen ? 'column' : 'row';
     return (
