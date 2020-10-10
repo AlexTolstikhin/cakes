@@ -11,7 +11,7 @@ const Table = ({
     tableHeadStyles,
     tableStyles,
 }) =>   
-    <table style={tableStyles}>
+    <table className="col-sm-auto text-center" style={tableStyles}>
         <thead style={tableHeadStyles}>
             <tr>
                 <td colSpan={colSpan.toString()} style={tableDataStyles}>{subtitle}</td> 

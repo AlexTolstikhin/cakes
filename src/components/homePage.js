@@ -13,23 +13,6 @@ import { sendEmail } from '../utils/utils';
 
 import ReactTooltip from 'react-tooltip';
 
-// Add text here
-// dummy text
-import { text1, text2 } from './dummyData';
-
-
-//TODO:
-// define viewPort ??
-// define isSmallScreen ===> actually everything that is less 1200
-
-
-// Future development plans:
-// consider to switch HomePage to class component ==>
-//  - adding router
-//  - payment (future)
-
-// Nice to have:
-// Probably will be nice to implement EN/RU versions
 
 const styles = {
     buttonStyles: {
@@ -129,21 +112,13 @@ const HomePage = () => {
     const [ messageTxt, setMessageTxt ] = useState('');
     
     const {
-        buttonStyles,
-        contentWrapperStyles,
         largeFonts,
-        mainSection,
-        mediumFonts,
-        sectionWrapperStyles,
         smallFonts,
         smallerFonts,
-        subtitleStyles,
         tableBodyStyles,
         tableDataStyles,
         tableHeadStyles,
         tableStyles,
-        textareaStyles,
-        textHolderStyles,
     } = styles;
     const isSmallScreen = windowWidth < 1200;
 
@@ -151,25 +126,23 @@ const HomePage = () => {
     return (
         <div className="container">
             <section className="row">
-                <header className="col-lg" style={{...largeFonts, margin: '15px'}}>Homemade Honeycakes</header>
+                <header className="col-lg" style={{...largeFonts, margin: '15px'}}>Homemade Cakes</header>
             </section>
             <section className="row">
-                <div className={`${isSmallScreen ? `col-sm` : `col-6`} shadow p-3 mb-5 bg-white rounded`}>
+                <div className={`${isSmallScreen ? `col-sm` : `col-5`}  p-3 mb-5 shadow bg-white rounded text-center`}>
                         <span style={{...smallFonts}}>
-                            <span>I would love to make a cake for you, so you can enjoy the taste of the freshly cooked, homemade, delicious honeycake.</span>
+                            <span>Sweet, fresh, homemade cakes with delivery around Bay Area.</span>
                             <br />
                             <br />
-                            <span>Let me share a few photos of the cakes I've made as well as prices and sizes available, and provide you with some contact information here.</span>
+                            <span>We'll bake an amazing honeycake, chocolate cake or cheescake for you.</span>
                         </span>
                 </div>
-            </section>
-            <section className="row">
-                <div className={`${isSmallScreen ? `col-sm` : `col-6 offset-6`} shadow p-3 mb-5 bg-white rounded`}>
+                <div className={`${isSmallScreen ? `col-sm` : `col-6 offset-1`} shadow p-3 mb-5 bg-white rounded`}>
                     <ImageCarousel images={allCakes.filter((d, i) => i >= 3)} />
                 </div>
             </section>
-            <section className="row justify-content-md-center">
-                <div className={`${isSmallScreen ? `col-sm` : `col-4`} shadow p-3 mb-5 bg-white rounded`}>
+            <section className="row justify-content-sm-center">
+                <div className={`col-sm-auto shadow p-3 mb-5 bg-white rounded align-items-center`}>
                     <Table
                         colSpan={3}
                         subtitle="Prices"
@@ -185,20 +158,23 @@ const HomePage = () => {
                     />
                 </div>
             </section>
-            <section className="row justify-content-center shadow p-3 mb-5 bg-white rounded">
-                <a
-                href='https://www.instagram.com/honeycake_sf/'
-                target='_blank'
-                rel="noopener noreferrer"
-                >
-                <FontAwesomeIcon icon={faInstagram} size="3x" style={{ cursor: "pointer", color: "black", marginRight: '10px' }} />
-                </a>
-                <a
-                href="tel: +1 713 480 3016"
-                >
-                <FontAwesomeIcon data-tip="+1 713 480 3016" icon={faPhoneSquare} size="3x" style={{ cursor: "pointer", color: "black" }} />
-                </a>
-                <ReactTooltip />
+            <section className="row justify-content-center">
+                <div className={`text-center col-sm-auto shadow p-3 mb-5 bg-white rounded`}>
+                <span>
+                    <a
+                        href='https://www.instagram.com/honeycake_sf/'
+                        target='_blank'
+                        rel="noopener noreferrer"
+                    >
+                        <FontAwesomeIcon icon={faInstagram} size="3x" style={{ cursor: "pointer", color: "black", marginRight: '10px' }} />
+                    </a>
+                    <a href="tel: +1 713 480 3016">
+                        <FontAwesomeIcon data-tip="+1 713 480 3016" icon={faPhoneSquare} size="3x" style={{ cursor: "pointer", color: "black" }} />
+                    </a>
+                    <ReactTooltip />
+                </span>
+                
+                </div>    
             </section>
         </div>
     );
