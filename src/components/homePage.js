@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
 // Add aliases for reusableParts, assets and utils
 
-import SectionWrapper from './reusableParts/wrappers/sectionWrapper';
-import ContentWrapper from './reusableParts/wrappers/contentWrapper';
 import ImageCarousel from './reusableParts/carousel/imageCarousel';
 import { allCakes } from '../assets/images/cakes';
 import Table from './reusableParts/table/table';
@@ -151,27 +149,27 @@ const HomePage = () => {
 
     const flexFlow = isSmallScreen ? 'column' : 'row';
     return (
-        <div>
-            <section style={{ display: 'flex', height: '100%', justifyContent: 'center' }}>
-                <header style={{...largeFonts, margin: '15px'}}>Homemade Honeycakes</header>
+        <div className="container">
+            <section className="row">
+                <header className="col-lg" style={{...largeFonts, margin: '15px'}}>Homemade Honeycakes</header>
             </section>
-            <section style={{ display: 'flex', height: '100%', justifyContent: 'center' }}>
-                <div style={{  display: 'flex', flexFlow: isSmallScreen ? 'column' : 'row'}}>
-                    <span style={{...smallFonts, flexBasis: '50%'}}>
-                        <span>Hi my name is Eldana and I love baking!!!</span>
-                        <br />
-                        <br />
-                        <span>I would love to make a cake for you, so you can enjoy the taste of the freshly cooked, homemade, delicious honeycake.</span>
-                        <br />
-                        <br />
-                        <span>Let me share a few photos of the cakes I've made as well as prices and sizes available, and provide you with some contact information here.</span>
-                    </span>
-                    <span style={{...smallFonts, flexBasis: '50%'}}>
-                        <ImageCarousel images={allCakes.filter((d, i) => i >= 3)} />
-                    </span>
+            <section className="row">
+                <div className={`${isSmallScreen ? `col-sm` : `col-6`} shadow p-3 mb-5 bg-white rounded`}>
+                        <span style={{...smallFonts}}>
+                            <span>I would love to make a cake for you, so you can enjoy the taste of the freshly cooked, homemade, delicious honeycake.</span>
+                            <br />
+                            <br />
+                            <span>Let me share a few photos of the cakes I've made as well as prices and sizes available, and provide you with some contact information here.</span>
+                        </span>
                 </div>
             </section>
-            <section style={{ display: 'flex', height: '100%', justifyContent: 'center' }}>
+            <section className="row">
+                <div className={`${isSmallScreen ? `col-sm` : `col-6 offset-6`} shadow p-3 mb-5 bg-white rounded`}>
+                    <ImageCarousel images={allCakes.filter((d, i) => i >= 3)} />
+                </div>
+            </section>
+            <section className="row justify-content-md-center">
+                <div className={`${isSmallScreen ? `col-sm` : `col-4`} shadow p-3 mb-5 bg-white rounded`}>
                     <Table
                         colSpan={3}
                         subtitle="Prices"
@@ -185,8 +183,9 @@ const HomePage = () => {
                             ['12 inches', "......................................", "80$"],
                         ]}
                     />
+                </div>
             </section>
-            <section style={{ display: 'flex', height: '100%', justifyContent: 'center' }}>
+            <section className="row justify-content-center shadow p-3 mb-5 bg-white rounded">
                 <a
                 href='https://www.instagram.com/honeycake_sf/'
                 target='_blank'
