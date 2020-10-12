@@ -31,9 +31,6 @@ const ImageCarousel = () => {
             <div className="carousel-item">
             <img src={allCakes[7]} className="d-block w-100" alt="cake"/>
             </div>
-            <div className="carousel-item">
-            <img src={allCakes[8]} className="d-block w-100" alt="cake"/>
-            </div>
         </div>
         <a className="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
             <span className="carousel-control-prev-icon" aria-hidden="true"></span>

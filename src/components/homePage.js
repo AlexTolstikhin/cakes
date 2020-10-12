@@ -123,7 +123,6 @@ const HomePage = () => {
     } = styles;
     const isSmallScreen = windowWidth < 800;
 
-    const flexFlow = isSmallScreen ? 'column' : 'row';
     return (
         <div className="container">
             <section className="row">
@@ -157,13 +156,6 @@ const HomePage = () => {
                             ['12 inches', "......................................", "80$"],
                         ]}
                     />
-                </div>
-            </section>
-            <section>
-                <div className={`${isSmallScreen ? `col-md` : `col-5`}  p-3 mb-5 shadow bg-white rounded text-center`}>
-                    <span style={{...smallFonts}}>
-                        <span>Delivery is available around Bay Area</span>
-                    </span>
                 </div>
             </section>
             <section className="row justify-content-center">
