@@ -23,22 +23,11 @@ const styles = {
         margin: '30px',
         width: '200px'
     },
-    contentWrapperStyles: {
-        display: 'flex',
-        flexBasis: '50%',
-        justifyContent: 'center',
-        padding: '40px'
-    },
     mainSection: isSmallScreen => ({
         fontFamily: `'Raleway', sans-serif`,
         margin: '0 auto',
         opacity: 0.8,
         width: isSmallScreen ? '100%' : '80%'
-    }),
-    sectionWrapperStyles: (flexFlow = "row") => ({
-        display: 'flex', 
-        flexFlow: flexFlow,
-        justifyContent: 'center'
     }),
     subtitleStyles: {
         fontSize: '24px',
