@@ -11,10 +11,13 @@ const ImageCarousel = () => {
             <img src={allCakes[0]} className="d-block w-100" alt="cake"/>
             </div>
             <div className="carousel-item">
-            <img src={allCakes[3]} className="d-block w-100" alt="cake"/>
+            <img src={allCakes[1]} className="d-block w-100" alt="cake"/>
             </div>
             <div className="carousel-item">
             <img src={allCakes[2]} className="d-block w-100" alt="cake"/>
+            </div>
+            <div className="carousel-item">
+            <img src={allCakes[3]} className="d-block w-100" alt="cake"/>
             </div>
             <div className="carousel-item">
             <img src={allCakes[4]} className="d-block w-100" alt="cake"/>
@@ -24,6 +27,12 @@ const ImageCarousel = () => {
             </div>
             <div className="carousel-item">
             <img src={allCakes[6]} className="d-block w-100" alt="cake"/>
+            </div>
+            <div className="carousel-item">
+            <img src={allCakes[7]} className="d-block w-100" alt="cake"/>
+            </div>
+            <div className="carousel-item">
+            <img src={allCakes[8]} className="d-block w-100" alt="cake"/>
             </div>
         </div>
         <a className="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">

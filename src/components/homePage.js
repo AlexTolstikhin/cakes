@@ -130,7 +130,7 @@ const HomePage = () => {
                 <header className="col-lg" style={{...largeFonts, margin: '15px'}}>Homemade Cakes</header>
             </section>
             <section className="row">
-                <div className={`${isSmallScreen ? `col-sm` : `col-5`}  p-3 mb-5 shadow bg-white rounded text-center`}>
+                <div className={`${isSmallScreen ? `col-md` : `col-5`}  p-3 mb-5 shadow bg-white rounded text-center`}>
                         <span style={{...smallFonts}}>
                             <span>Sweet, fresh, homemade cakes with delivery around Bay Area.</span>
                             <br />
@@ -138,7 +138,7 @@ const HomePage = () => {
                             <span>We'll bake an amazing honeycake, chocolate cake or cheescake for you.</span>
                         </span>
                 </div>
-                <div className={`${isSmallScreen ? `col-sm` : `col-6 offset-1`} shadow p-3 mb-5 bg-white rounded`}>
+                <div className={`${isSmallScreen ? `col-md` : `col-6 offset-1`} shadow p-3 mb-5 bg-white rounded`}>
                     <ImageCarousel images={allCakes.filter((d, i) => i >= 3)} />
                 </div>
             </section>
@@ -157,6 +157,13 @@ const HomePage = () => {
                             ['12 inches', "......................................", "80$"],
                         ]}
                     />
+                </div>
+            </section>
+            <section>
+                <div className={`${isSmallScreen ? `col-md` : `col-5`}  p-3 mb-5 shadow bg-white rounded text-center`}>
+                    <span style={{...smallFonts}}>
+                        <span>Delivery is available around Bay Area</span>
+                    </span>
                 </div>
             </section>
             <section className="row justify-content-center">
